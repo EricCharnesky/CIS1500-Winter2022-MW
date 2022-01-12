@@ -1,0 +1,20 @@
+package lab.pkg1;
+
+/**
+ *
+ * @author derek
+ */
+public class Lab1 {
+
+    
+    public static void main(String[] args) {
+        System.err.println("Derek Schmidt (he/him)");
+        System.out.println("Going for a major in computer science or electrical engineering");
+        System.out.println("less than one semester of your class of experiance");
+        System.out.println("Im taking the class to learn about coding to help with my major");
+        System.out.println("I enjoy playing soccer, I played at schoolcraft, and I also enjoy playing video games with my friends");
+        
+    }
+    
+}
+
