@@ -151,6 +151,17 @@ public class Chapter2 {
         // once the while condition is not true, the code continues below
         System.out.println("You guessed it in " + numberOfGuesses + " guesses!");
 
+        
+        // ask the user if they want to play rock paper scissors
+        // while they want to play ( their input was y )
+            // ask them which they want to throw, rock paper or scissors
+            // the computer will always be rock
+            // tell them win/lose/draw
+             // plyaer wins if they are paper
+             // player loses if they are scissors
+             // draw if player is rock
+            // ask if they want to play again
+        
     }
 
 }
