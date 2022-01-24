@@ -162,6 +162,12 @@ public class Chapter2 {
              // draw if player is rock
             // ask if they want to play again
         
+            
+            
+        System.out.println("Enter a number with a deciaml place");
+        double someDecimal = Double.parseDouble(keyboard.nextLine());
+        
+        System.out.println("Your number rounded up is: " + Math.ceil(someDecimal));
     }
 
 }
