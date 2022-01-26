@@ -73,6 +73,28 @@ public class Chapter3 {
         // Math.random() * max value + 1 to get 1-max value
         System.out.println("Random number 1-10: " + Math.floor(Math.random() * 10 + 1));
         
+        
+        
+        // ask the user if they want to play a game
+        
+        // while their answer is yes, keep looping
+        
+          // ask them how high of a number they want to guess
+          
+          // generate a random number 1-that number
+          
+          // count the number of guesses it takes them to guess the number
+          
+          // ask them to guess
+          // loop as long as their guess is NOT correct
+            // tell them too high or too low
+            // if the guess was < the number - loo low
+            // else - too high
+            // make sure you are count the number of guesses
+            // have them guess again
+          
+        // ask if they want to play again 
+        
     }
 
 }
