@@ -1,5 +1,7 @@
 package chapter3;
 
+import java.math.BigDecimal;
+import java.text.NumberFormat;
 import java.util.Scanner;
 
 public class Chapter3 {
@@ -94,6 +96,64 @@ public class Chapter3 {
             // have them guess again
           
         // ask if they want to play again 
+        
+        boolean mustBeTrueOrFalse = true;
+        if ( mustBeTrueOrFalse ){ // if the boolean is true, this runs
+            System.out.println("You picked true!");
+        }
+        
+        
+        int someValue = 27;
+        
+        // smalls values fit into bigger values
+        double anotherValue = someValue; // implicit
+        
+        // can't find a larger value into a smaller value
+        // float someFloat = anotherValue;
+        
+        //you can if you casting
+        float someFloat = (float)anotherValue; // take a double, treat it as a float
+        
+        System.out.println("Please enter the price of an item to buy");
+        double price = Double.parseDouble(keyboard.nextLine());
+        // (double) only works for numeric -> numeric types
+        
+        double tax = price * .06;
+        
+        System.out.println("Your total cost including tax is: $" + (tax + price));
+        
+        NumberFormat currencyFormat = NumberFormat.getCurrencyInstance();
+        
+        System.out.println("Your total cost including tax is: " 
+                + currencyFormat.format(tax + price));
+        
+        
+        NumberFormat roundingFormat = NumberFormat.getNumberInstance();
+        roundingFormat.setMaximumFractionDigits(5);
+        System.out.println("Pi to 5 digits is: " + roundingFormat.format(Math.PI));
+        
+        double result = 1.1;
+        
+        int numberOfTImesToAdd = 1;
+        
+        while ( numberOfTImesToAdd <= 100 ){
+            result += 1.01;
+            numberOfTImesToAdd++;
+        }
+        // java isn't very percise with doubles and airthmetic 
+        System.out.println(result);
+        
+        
+        BigDecimal total = new BigDecimal("1.1");
+        
+        numberOfTImesToAdd = 1;
+        
+        while ( numberOfTImesToAdd <= 100 ){
+            BigDecimal toAdd = new BigDecimal("1.01");
+            total = total.add(toAdd);
+            numberOfTImesToAdd++;
+        }
+        System.out.println(total.toPlainString());
         
     }
 
