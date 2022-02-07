@@ -73,7 +73,29 @@ public class Chapter4 {
             System.out.println("Please enter Red, Yellow, or Green");
             color = keyboard.nextLine();
         }
+        
+        // needs to be declare before the loop
+        String colorDo; 
+        // guaranteed to run once
+        do{
+            System.out.println("Please enter Red, Yellow, or Green");
+            colorDo = keyboard.nextLine();
+        } while (!colorDo.equalsIgnoreCase("green")
+                && !colorDo.equalsIgnoreCase("yellow")
+                && !colorDo.equalsIgnoreCase("red")) ; // do loops need ; after the while
 
+        while (!colorDo.equalsIgnoreCase("green")
+                && !colorDo.equalsIgnoreCase("yellow")
+                && !colorDo.equalsIgnoreCase("red")) ;
+        {
+            System.out.println("This will never run");
+        }
+        
+        if ( color.equals("blue")) // without curly braces, 1 line will be 'attached'
+            System.out.println("That's my favorite color too!");
+            System.out.println("This line always runs becuase you don't have curly braces");
+        
+        
         if (color.equalsIgnoreCase("green")) {
             System.out.println("GO!");
         } else if (color.equalsIgnoreCase("yellow")) {
@@ -127,7 +149,72 @@ public class Chapter4 {
                 System.out.println("A-");
                 break;
         }
+        
+        
+        int number = 0;
+        while ( number < 10 ){
+            System.out.println(number);
+            number++; // if you forget this, it's an infinite loop
+        }
+        
+        // same as above
+        // initialize, test, update
+        for ( int loopNumber = 0; loopNumber < 10; loopNumber++){
+            System.out.println(loopNumber);
+        }
+        
+        int total = 0;
+        int receipt = -1;
+        // senintel value - unusal value that you don't expect
+        while ( receipt != 0 ){ 
+            System.out.println("Enter a receipt value or 0 to stop:");
+            receipt = Integer.parseInt(keyboard.nextLine());
+            total += receipt;
+        }
+        
+        System.out.println("Your total is: $" + total);
 
+        
+        int anotherTotal = 0;
+        int anotherReceipt = -1;
+        
+        while ( true ){
+            System.out.println("Enter a receipt value or 0 to stop:");
+            anotherReceipt = Integer.parseInt(keyboard.nextLine());
+            anotherTotal += anotherReceipt;
+            if ( anotherReceipt == 0 ){
+                break; // ends the loop
+            }
+        }
+        
+         System.out.println("Your total is: $" + anotherTotal);
+         
+         
+        for ( int count = 0; count < 10; count++ ){
+            if ( count % 2 == 1 ){
+                continue; // go back to the loop header
+            }
+            System.out.println(count);
+            
+        }
+        
+        
+        for ( int hour = 0; hour < 24; hour++ ){
+            for ( int minute = 0; minute < 60; minute++){
+                System.out.println(hour + ":" + minute);
+            }
+        }
+        
+        System.out.println("How large of a square should I print?");
+        int size = Integer.parseInt(keyboard.nextLine());
+        
+        for ( int row = 0; row < size; row++){
+            for ( int column = 0; column < size; column++){
+                System.out.print("*");
+            }
+            System.out.println("");
+        }
+        
     }
 
 }
