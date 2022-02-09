@@ -8,17 +8,9 @@ public class Lab5 {
 
         Scanner keyboard = new Scanner(System.in);
 
-        int score = 0;
-        while (score < 1 || score > 100) {
-            System.out.println("Please enter your score 1-100");
-            score = Integer.parseInt(keyboard.nextLine());
-        }
+        int score = askUserForValueAndValidateRange("Please enter your score 1-100", 1, 100);
 
-        int average = 0;
-        while (average < 1 || average > 100) {
-            System.out.println("Please enter the average score 1-100");
-            average = Integer.parseInt(keyboard.nextLine());
-        }
+        int average = askUserForValueAndValidateRange("Please enter the average score 1-100", 1, 100);
 
         if (score > average) {
             System.out.println("You got an A!");
@@ -36,6 +28,16 @@ public class Lab5 {
             System.out.println("You got your score: " + score);
         }
 
+    }
+    
+    public static int askUserForValueAndValidateRange(String prompt, int min, int max){
+        Scanner keyboard = new Scanner(System.in);
+        int value;
+        do {
+            System.out.println(prompt);
+            value = Integer.parseInt(keyboard.nextLine());
+        } while (value < min || value > max);
+        return value;
     }
 
 }
