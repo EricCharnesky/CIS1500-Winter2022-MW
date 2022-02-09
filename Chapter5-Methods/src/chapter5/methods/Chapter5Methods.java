@@ -1,4 +1,3 @@
-
 package chapter5.methods;
 
 import java.util.Scanner;
@@ -10,25 +9,17 @@ public class Chapter5Methods {
 
         while (play.equalsIgnoreCase("y")) {
 
-            System.out.println("How high of a number do you want to guess?");
-            int highestNumber = Integer.parseInt(keyboard.nextLine());
+            int highestNumber = askHowHighToGuess();
 
             int randomNumber = (int) (Math.random() * highestNumber + 1);
 
-            System.out.println("Guess a number 1 - " + highestNumber);
-            int guess = Integer.parseInt(keyboard.nextLine());
+            int guess = askForAGuess(highestNumber);
             int numberOfGuesses = 1;
 
             while (guess != randomNumber) {
-                if (guess < randomNumber) {
-                    System.out.println("Too low!");
-                } else {
-                    System.out.println("Too high!");
-                }
-                System.out.println("Guess a number 1 - " + highestNumber);
-                guess = Integer.parseInt(keyboard.nextLine());
+                printTooHighOrTooLow(guess, randomNumber);
+                guess = askForAGuess(highestNumber);
                 numberOfGuesses++;
-
             }
 
             System.out.println("Great guessing, you got it in "
@@ -39,26 +30,44 @@ public class Chapter5Methods {
 
         printHaveANiceDay();
     }
-    
+
     // void methods don't return values, they just run
-    public static void printHaveANiceDay(){
+    public static void printHaveANiceDay() {
         System.out.println("Have a great snow day!");
         System.out.println("Enjoy the sunshine!");
         System.out.println("Are you going to go sledding?");
     }
-    
+
     // if it isn't void, tell the java what type of value is going to be returned
-    public static String askTheUserIfTheyWantToPlay(){
+    public static String askTheUserIfTheyWantToPlay() {
         Scanner keyboard = new Scanner(System.in);
         System.out.println("Do you want to play a game? (y/n)");
         String play = keyboard.nextLine();
         return play;
     }
-    
-    public static int askHowHighToGuess(){
+
+    public static int askHowHighToGuess() {
+        Scanner keyboard = new Scanner(System.in);
         System.out.println("How high of a number do you want to guess?");
-            int highestNumber = Integer.parseInt(keyboard.nextLine());
-            return highestNumber;
+        int highestNumber = Integer.parseInt(keyboard.nextLine());
+        return highestNumber;
     }
-    
+
+    // values defined to be passed are parameters
+    public static int askForAGuess(int highestNumber) {
+        Scanner keyboard = new Scanner(System.in);
+        System.out.println("Guess a number 1 - " + highestNumber);
+        int guess = Integer.parseInt(keyboard.nextLine());
+        return guess;
+    }
+
+    // if you have more than 1 parameter, just comma spearate them
+    public static void printTooHighOrTooLow(int guess, int randomNumber) {
+        if (guess < randomNumber) {
+            System.out.println("Too low!");
+        } else {
+            System.out.println("Too high!");
+        }
+    }
+
 }
