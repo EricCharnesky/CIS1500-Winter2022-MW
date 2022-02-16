@@ -18,8 +18,8 @@ public class Lab6 {
         }
         
         if ( shape.equalsIgnoreCase("square")){
-            System.out.println("Enter the size square you want");
-            int size = Integer.parseInt(keyboard.nextLine());
+            String prompt = "Enter the size square you want";
+            int size = askForAnInt(prompt);
             for ( int row = 0; row < size; row++ )
             {
                 for ( int column = 0; column < size; column++){
@@ -55,6 +55,17 @@ public class Lab6 {
             }
         }
 
+    }
+    
+    public static int askForAnInt(String prompt){
+        Scanner keyboard = new Scanner(System.in);
+        // strings are Immuatable - they can't change
+        // any 'changes' becomes a new string in memory
+        prompt = prompt.toUpperCase();  // creates a new string and points prompt to it
+        // doesn't change the string stored in memory in main
+        System.out.println(prompt);
+        int value = Integer.parseInt(keyboard.nextLine());
+        return value;
     }
 
 }

@@ -56,13 +56,26 @@ public class Chapter5Methods {
     // values defined to be passed are parameters
     public static int askForAGuess(int highestNumber) {
         Scanner keyboard = new Scanner(System.in);
-        System.out.println("Guess a number 1 - " + highestNumber);
-        int guess = Integer.parseInt(keyboard.nextLine());
-        return guess;
+        while (true) {
+            // try something that might crash
+            try {
+                System.out.println("Guess a number 1 - " + highestNumber);
+                // if an exception happens, the code stops running and jumps to the catch
+                int guess = Integer.parseInt(keyboard.nextLine());
+
+                // return is skipped if there is an exception
+                return guess;
+            } // but don't crash, do this instead 
+            catch (NumberFormatException exception) {
+                System.out.println("Please enter only numeric values");
+            }
+        }
     }
 
     // if you have more than 1 parameter, just comma spearate them
     public static void printTooHighOrTooLow(int guess, int randomNumber) {
+        // primitive types are passed by value, so you get a copy
+        randomNumber = 42; // won't change the value in main
         if (guess < randomNumber) {
             System.out.println("Too low!");
         } else {
